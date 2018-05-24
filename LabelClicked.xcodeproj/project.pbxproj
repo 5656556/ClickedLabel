@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F1096A9C20B68F68005CB635 /* QTLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F1096A9B20B68F68005CB635 /* QTLabel.m */; };
 		F1BD9F0120B564C800C9DA1A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F1BD9F0020B564C800C9DA1A /* AppDelegate.m */; };
 		F1BD9F0420B564C800C9DA1A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1BD9F0320B564C800C9DA1A /* ViewController.m */; };
 		F1BD9F0720B564C800C9DA1A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1BD9F0520B564C800C9DA1A /* Main.storyboard */; };
@@ -35,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F1096A9A20B68F68005CB635 /* QTLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QTLabel.h; sourceTree = "<group>"; };
+		F1096A9B20B68F68005CB635 /* QTLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QTLabel.m; sourceTree = "<group>"; };
 		F1BD9EFC20B564C700C9DA1A /* LabelClicked.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LabelClicked.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1BD9EFF20B564C800C9DA1A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F1BD9F0020B564C800C9DA1A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -105,6 +108,8 @@
 				F1BD9F0020B564C800C9DA1A /* AppDelegate.m */,
 				F1BD9F0220B564C800C9DA1A /* ViewController.h */,
 				F1BD9F0320B564C800C9DA1A /* ViewController.m */,
+				F1096A9A20B68F68005CB635 /* QTLabel.h */,
+				F1096A9B20B68F68005CB635 /* QTLabel.m */,
 				F1BD9F0520B564C800C9DA1A /* Main.storyboard */,
 				F1BD9F0820B564CA00C9DA1A /* Assets.xcassets */,
 				F1BD9F0A20B564CA00C9DA1A /* LaunchScreen.storyboard */,
@@ -265,6 +270,7 @@
 				F1BD9F0420B564C800C9DA1A /* ViewController.m in Sources */,
 				F1BD9F0F20B564CA00C9DA1A /* main.m in Sources */,
 				F1BD9F0120B564C800C9DA1A /* AppDelegate.m in Sources */,
+				F1096A9C20B68F68005CB635 /* QTLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
