@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import <CoreText/CoreText.h>
 #import "QTLabel.h"
 @interface ViewController ()<UITextViewDelegate>
 
@@ -15,13 +16,6 @@
 @implementation ViewController
 
 
-- (BOOL)textView:(UITextView *)textView shouldInteractWithURL:(NSURL *)URL inRange:(NSRange)characterRange interaction:(UITextItemInteraction)interaction{
-    NSLog(@"%@",[URL scheme]);
-    if([[URL scheme] containsString:@"ClickedStr"]){
-        NSLog(@"点击了  %@",[URL scheme]);
-    }
-    return YES;
-}
 - (NSMutableAttributedString *)subStringWithSize:(CGSize)size withStr:(NSString *)desStr withSuffix:(NSString *)sStr{
     UIFont *ftm = [UIFont systemFontOfSize:18];
     NSString *iStr = [NSString stringWithFormat:@"%@%@",desStr,sStr];
@@ -55,26 +49,7 @@
     NSString *strI = @"超过一定行数的label强制在末尾加上一个展开且可以点击成全文超过一定行数的label强制在末尾加上一个展开且可以点击成全文超过一定行数的label强制在末尾加上一个展开且可以点击成全文超过一定行数的label强制在末尾加上一个展开且可以点击成全文超过一定行数的label强制在末尾加上一个展开且可以点击成全文超过一定行数的label强制在末尾加上一个展开且可以点击成全文超过一定行数的label强制在末尾加上一个展开且可以点击成全文超过一定行数的label强制在末尾加上一个展开且可以点击成全文";
     NSString *strI1 = @"ios 超过一定行数的label强制在末尾加eee";
 
-//    UITextView *txtLab = [[UITextView alloc]initWithFrame:CGRectMake(20, 120, self.view.frame.size.width-2*20, 90)];
-//    txtLab.textColor = [UIColor blackColor];
-//    txtLab.font = ftm;
-//    txtLab.attributedText = [self subStringWithSize:CGSizeMake(txtLab.frame.size.width+5, 90) withStr:strI withSuffix:@"...点击查看更多>>"];
-//    txtLab.editable = NO;
-//    [txtLab setScrollEnabled:YES];
-//    txtLab.delegate = self;
-//    [self.view addSubview:txtLab];
-    UILabel *txtLab = [[UILabel alloc]initWithFrame:CGRectMake(20, 120, self.view.frame.size.width-2*20, 90)];
-    txtLab.textColor = [UIColor blackColor];
-    txtLab.font = ftm;
-    txtLab.attributedText = [self subStringWithSize:CGSizeMake(txtLab.frame.size.width, 90) withStr:strI withSuffix:@"点击查看更多"];
-    txtLab.numberOfLines = 0;
-
-    [self.view addSubview:txtLab];
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(labClick:)];
-    [txtLab addGestureRecognizer:tap];
-
-
-    QTLabel *lab1 = [[QTLabel alloc]initWithFrame:CGRectMake(20,220, self.view.frame.size.width-2*20, 110)];
+    QTLabel *lab1 = [[QTLabel alloc]initWithFrame:CGRectMake(20,80, self.view.frame.size.width-2*20, 90)];
     lab1.numberOfLines = 0;
     lab1.userInteractionEnabled = YES;
     NSString *linkStr = @"点击查看更多";
@@ -85,14 +60,50 @@
     lab1.linkTapHandle = ^(QTLabel *label, NSString *selectStr, NSRange range){
         NSLog(@"str:%@ range:%@",selectStr,NSStringFromRange(range));
     };
+    NSArray *arrFTS = [UIFont familyNames];
+    UIFont *tff = [ViewController customTTFFontWithName:@"FZkatongjian" fontSize:18];//[UIFont fontWithName:@"FZkatongjian" size:18];
+    UILabel *lab2 = [[UILabel alloc]initWithFrame:CGRectMake(20, 190,self.view.frame.size.width-2*20, 80)];
+    lab2.numberOfLines = 0;
+    lab2.text = strI;
+    lab2.font = tff;
+    [self.view addSubview:lab2];
+
+
 
 //    txtLab.backgroundColor = [UIColor cyanColor];
 
 }
 
-- (void)labClick:(UITapGestureRecognizer *)tap{
-    CGPoint point = [tap locationInView:tap.view];
++ (UIFont*)customTTFFontWithName:(NSString *)fontName fontSize:(float)fontsize
+{
+    NSDictionary *fontsizeAttr=[NSDictionary dictionaryWithObjectsAndKeys:
+                                [NSNumber numberWithFloat:fontsize], kCTFontSizeAttribute,
+                                nil];
+    return [ViewController customFontWithName:fontName
+                               ofType:@"ttf"
+                           attributes:fontsizeAttr];
 }
+
+
++ (UIFont*)customFontWithName:(NSString *)fontName
+                       ofType:(NSString *)type
+                   attributes:(NSDictionary *)attributes
+{
+    NSString *fontPath = [[NSBundle mainBundle] pathForResource:fontName ofType:type];
+    NSData *data = [[NSData alloc] initWithContentsOfFile:fontPath];
+    CGDataProviderRef fontProvider = CGDataProviderCreateWithCFData((__bridge CFDataRef)data);
+#if  !__has_feature(objc_arc)
+    [data release];
+#endif
+    CGFontRef cgFont = CGFontCreateWithDataProvider(fontProvider);
+    CGDataProviderRelease(fontProvider);
+    CTFontDescriptorRef fontDescriptor = CTFontDescriptorCreateWithAttributes((__bridge CFDictionaryRef)attributes);
+    CTFontRef font = CTFontCreateWithGraphicsFont(cgFont, 0, NULL, fontDescriptor);
+    CFRelease(fontDescriptor);
+    CGFontRelease(cgFont);
+    return (__bridge UIFont*)font;
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];

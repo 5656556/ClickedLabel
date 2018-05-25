@@ -16,6 +16,7 @@
 		F1BD9F0F20B564CA00C9DA1A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F1BD9F0E20B564CA00C9DA1A /* main.m */; };
 		F1BD9F1920B564CB00C9DA1A /* LabelClickedTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F1BD9F1820B564CB00C9DA1A /* LabelClickedTests.m */; };
 		F1BD9F2420B564CB00C9DA1A /* LabelClickedUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F1BD9F2320B564CB00C9DA1A /* LabelClickedUITests.m */; };
+		F1E8D5B020B6C60D002C4C76 /* FZkatongjian.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1E8D5AF20B6C60D002C4C76 /* FZkatongjian.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		F1BD9F1F20B564CB00C9DA1A /* LabelClickedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LabelClickedUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1BD9F2320B564CB00C9DA1A /* LabelClickedUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LabelClickedUITests.m; sourceTree = "<group>"; };
 		F1BD9F2520B564CB00C9DA1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1E8D5AF20B6C60D002C4C76 /* FZkatongjian.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FZkatongjian.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 		F1BD9EFE20B564C800C9DA1A /* LabelClicked */ = {
 			isa = PBXGroup;
 			children = (
+				F1E8D5AF20B6C60D002C4C76 /* FZkatongjian.ttf */,
 				F1BD9EFF20B564C800C9DA1A /* AppDelegate.h */,
 				F1BD9F0020B564C800C9DA1A /* AppDelegate.m */,
 				F1BD9F0220B564C800C9DA1A /* ViewController.h */,
@@ -242,6 +245,7 @@
 			files = (
 				F1BD9F0C20B564CA00C9DA1A /* LaunchScreen.storyboard in Resources */,
 				F1BD9F0920B564CA00C9DA1A /* Assets.xcassets in Resources */,
+				F1E8D5B020B6C60D002C4C76 /* FZkatongjian.ttf in Resources */,
 				F1BD9F0720B564C800C9DA1A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
